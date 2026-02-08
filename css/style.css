@@ -1,94 +1,501 @@
-body {margin: 0;
-  font-family: 'Times New Roman', Times, serif;
-  min-height: 100vh;
-  text-align: center;}
-.body-Portofolio {background: rgb(109, 203, 247);}
-.body-project {background: white;}
-.container {display: flex;
-  gap: 20px;
-  justify-content: center;
-  flex-wrap: wrap;}
-.card-Portofolio {  background: rgb(255, 255, 255);
-  width: 220px;
-  padding: 20px;
-  border-radius: 15px;
-  text-align: center;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-  transition: 0.3s;}
-.card-Project {background: #81c7fc;
-  width: 220px;
-  padding: 20px;
-  border-radius: 15px;
-  text-align: center;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-  transition: 0.3s;}
-.cards {display: flex;
-  gap: 20px;
-  flex-wrap: wrap;}
-.card:hover {transform: translateY(-8px);
-  box-shadow: 0 10px 20px rgba(0,0,0,0.15);}
-.card img {width: 100%;
-  border-radius: 10px;
-  margin-bottom: 15px;}
-.btn {display: inline-block;
-  margin-top: 15px;
-  padding: 8px 16px;
-  background: #1e293b;
-  color: white;
-  text-decoration: none;
-  border-radius: 6px;
-  font-size: 18px;
-  transition: 0.3s;}
-.btn:hover {background: #90c0f7;
-  color: black;
-  transform: translateY(-8px);}
-.foto {width: 150px;
-  height: 100px;
-  object-fit: cover;}
+/* =========================
+   GLOBAL
+========================= */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
 
-/*Koding style supaya menyesuaikan layar HP*/
-@media (max-width: 768px) {
-  .cards {flex-direction: column;
-    align-items: center;}
-  .card{width: 90%;
-    max-width: 350px;}
-   nav {flex-direction: column;
-  align-items: center;} }
-nav {background: linear-gradient(135deg, #2f3640, #1e272e);
-  color: white;
-  border-radius: 20px;
-  padding: 20px;
-  margin: 20px auto;
-  width: 100%;
-  max-width: 1100px;
-  gap: 30px;
+body {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+  background: #ffffff;
+  color: #111827;
+}
+
+/* =========================
+   HEADER / NAVIGATION
+========================= */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: #ffffff;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.site-header.scrolled {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(8px);
+}
+
+.site-header .container {
   display: flex;
-  justify-content:center;
   align-items: center;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.2);}
-nav a {text-decoration: none;
-  color: #ffffff;
-  font-weight: bold;
-  padding: 8px 12px;
-  transition: 0.3s;}
-nav a:hover{color: #81c7fc;}
-nav a.active {color: #007bff;
-  border-bottom: 2px solid #007bff;}
-.hero {background: linear-gradient(135deg, #2f3640, #1e272e);
-  color: white;
-  border-radius: 20px;
-  padding: 40px;
-  margin: 20px auto;
-  width: 90%;
-  max-width: 1100px;
-  display: flex;
-  flex-direction: column;
   justify-content: space-between;
+  padding: 16px 24px;
+}
+
+.logo {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.nav {
+  display: flex;
+  gap: 24px;
+}
+
+.nav a {
+  text-decoration: none;
+  font-size: 14px;
+  color: #374151;
+  padding-bottom: 4px;
+  transition: color 0.3s ease;
+}
+
+.nav a:hover {
+  color: #111827;
+}
+
+.nav a.active {
+  color: #3b82f6;
+  border-bottom: 2px solid #3b82f6;
+}
+
+/* =========================
+   HERO (HOME)
+========================= */
+.hero {
+  max-width: 900px;
+  margin: 60px auto;
+  padding: 60px 40px;
+  background: linear-gradient(180deg, #1f2933, #111827);
+  border-radius: 24px;
+  text-align: center;
+  color: #f9fafb;
+}
+
+.hero h1 {
+  font-size: 42px;
+  margin-bottom: 20px;
+}
+
+.hero p {
+  max-width: 700px;
+  margin: 0 auto 40px;
+  font-size: 17px;
+  line-height: 1.8;
+  color: #d1d5db;
+}
+
+.hero-btn {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.hero-btn a {
+  padding: 12px 26px;
+  border-radius: 999px;
+  font-size: 15px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.hero-btn a:first-child {
+  background: #3b82f6;
+  color: #ffffff;
+}
+
+.hero-btn a:last-child {
+  background: #ffffff;
+  color: #111827;
+}
+
+.hero-btn a:hover {
+  transform: translateY(-3px);
+  opacity: 0.9;
+}
+
+/* =========================
+   OVERVIEW SECTION
+========================= */
+.overview {
+  max-width: 1000px;
+  margin: 80px auto;
+  padding: 0 24px;
+  text-align: center;
+}
+
+.overview h2 {
+  font-size: 28px;
+  margin-bottom: 40px;
+}
+
+.overview-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.overview-list div {
+  background: #ffffff;
+  padding: 32px 24px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+  transition: all 0.3s ease;
+}
+
+.overview-list div:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+}
+
+/* =========================
+   PURPOSE SECTION
+========================= */
+.purpose {
+  max-width: 800px;
+  margin: 100px auto;
+  padding: 0 24px;
+  text-align: center;
+}
+
+.purpose h2 {
+  font-size: 26px;
+  margin-bottom: 32px;
+}
+
+.purpose p {
+  font-size: 16px;
+  line-height: 1.9;
+  color: #374151;
+}
+
+.purpose::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 3px;
+  background: #111827;
+  margin: 40px auto 0;
+  border-radius: 10px;
+}
+
+/* =========================
+   CTA
+========================= */
+.cta {
+  max-width: 900px;
+  margin: 120px auto 80px;
+  padding: 60px 32px;
+  background: linear-gradient(135deg, #1f2933, #111827);
+  border-radius: 24px;
+  text-align: center;
+  color: #ffffff;
+}
+
+.cta h2 {
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+.cta p {
+  max-width: 600px;
+  margin: 0 auto 40px;
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+.cta-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+/* BUTTON */
+.btn {
+  padding: 12px 28px;
+  border-radius: 999px;
+  font-size: 15px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.btn.primary {
+  background: #3b82f6;
+  color: #ffffff;
+}
+
+.btn.primary:hover {
+  background: #2563eb;
+}
+
+.btn.secondary {
+  border: 1px solid #ffffff;
+  color: #ffffff;
+}
+
+.btn.secondary:hover {
+  background: rgba(255,255,255,0.08);
+}
+
+/* =========================
+   ABOUT PAGE
+========================= */
+.about-hero {
+  padding: 120px 24px 80px;
+}
+
+.about-hero h1 {
+  font-size: 40px;
+  margin-bottom: 16px;
+}
+
+.about-hero p {
+  max-width: 600px;
+  font-size: 16px;
+  color: #6b7280;
+}
+
+.about-content {
+  background: #f9fafb;
+  padding: 100px 24px;
+}
+
+.about-content h2 {
+  font-size: 22px;
+  margin: 48px 0 16px;
+}
+
+.about-content p,
+.about-content ul {
+  max-width: 680px;
+}
+
+.about-content p {
+  font-size: 16px;
+  line-height: 1.8;
+  margin-bottom: 24px;
+}
+
+/* =========================
+   FOOTER
+========================= */
+.site-footer {
+  border-top: 1px solid #e5e7eb;
+  padding: 40px 24px;
+}
+
+.site-footer p {
+  font-size: 14px;
+  color: #6b7280;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 768px) {
+  .overview-list {
+    grid-template-columns: 1fr;
+  }
+
+  .nav {
+    gap: 16px;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero h1 {
+    font-size: 30px;
+  }
+
+  .hero p,
+  .purpose p {
+    font-size: 15px;
+  }
+
+  .cta h2 {
+    font-size: 24px;
+  }
+
+  .cta {
+    padding: 40px 24px;
+  }
+}
+/* =========================
+   PROJECT INTERACTION
+========================= */
+
+/* Project card khusus */
+.overview-list div {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Garis aksen halus di atas card */
+.overview-list div::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 4px;
+  width: 100%;
+  background: linear-gradient(90deg, #3b82f6, #2563eb);
+  opacity: 0;
+  transition: opacity 0.1s ease;
+}
+
+/* Hover card */
+.overview-list div:hover::before {
+  opacity: 1;
+}
+
+/* Judul project lebih hidup saat hover */
+.overview-list div:hover h3 {
+  color: #2563eb;
+}
+
+/* Paragraf tetap tenang */
+.overview-list div p {
+  transition: color 0.3s ease;
+}
+
+/* Tombol project */
+.overview-list .btn {
+  display: inline-block;
+  margin-top: 20px;
+}
+
+/* Hover tombol di project */
+.overview-list .btn:hover {
+  transform: translateY(-2px);
+}
+
+/* Animasi masuk pelan saat load */
+.overview {
+  animation: fadeUp 0.8s ease forwards;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* =========================
+   PROJECT ICON
+========================= */
+.project-icon {
+  display: inline-flex;
   align-items: center;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.2);}
-.hero-content h1 {font-size: 36px;
-  margin-bottom: 15px;}
-.hero-content p {font-size: 16px;
-  opacity: 0.9;}
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  margin-bottom: 16px;
+  border-radius: 12px;
+  font-size: 22px;
+  background: #f3f4f6;
+  transition: all 0.3s ease;
+}
+
+/* icon ikut hidup saat hover */
+.overview-list div:hover .project-icon {
+  background: #e0e7ff;
+  transform: scale(1.1);
+}
+
+/* =========================
+   PAGE: BELAJAR WEBSITE
+========================= */
+
+.page-website .about-hero {
+  background: linear-gradient(135deg, #0f172a, #020617);
+  color: #ffffff;
+  padding: 100px;
+  width: auto;
+}
+
+.page-website .about-hero h1 {
+  font-size: 42px;
+}
+
+.page-website .about-hero p {
+  color: #cbd5f5;
+}
+.page-website.about-content-closing {
+  background-color: #0f172a;
+  width: auto;
+  padding: 40px;
+  text-align: center;
+  color: #ffffff;
+}
+
+/* Card tampil beda */
+.page-website .overview-list div {
+  border: 1px solid #e5e7eb;
+  box-shadow: none;
+  text-align: left;
+}
+
+/* Icon jadi lebih teknis */
+.page-website .project-icon {
+  background: #111827;
+  color: #60a5fa;
+}
+
+/* Judul terasa seperti dokumentasi */
+.page-website h3 {
+  font-family: monospace;
+  font-size: 17px;
+}
+
+/* Status belajar */
+.page-website em {
+  display: inline-block;
+  margin-top: 12px;
+  font-size: 13px;
+  color: #6b7280;
+  background: #f3f4f6;
+  padding: 4px 10px;
+  border-radius: 999px;
+}
+
+/* Halaman Kotak */
+.contact {
+  text-align: center;
+  margin-top: 80px;
+}
+.contact p {
+  margin: 15px 0 40px;
+  color: #666;
+}
+.contact-list {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.contact-item {
+  text-decoration: none;
+  background: #f5f5f5;
+  padding: 15px 25px;
+  border-radius: 12px;
+  color: #333;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+.contact-item:hover {
+  background: #2196f3;
+  color: white;
+  transform: translateY(-5px);
+}
 
 
